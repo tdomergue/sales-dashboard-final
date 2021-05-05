@@ -8,9 +8,9 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :countries, only: [:index]
       get '/customers/:country', to: 'customers#number_per_country'
-      get '/sales/:country', to: 'sales#revenue_per_country'
-      get '/orders/:country', to: 'orders#average_revenue_per_country'
-      get '/sales/:country/monthly', to: 'sales#revenue_per_month'
+      get '/orders/:country', to: 'orders#revenue_per_country'
+      get '/orders/:country/average', to: 'orders#average_revenue_per_country'
+      get '/orders/:country/monthly', to: 'orders#revenue_per_month'
     end
   end
 

@@ -16,7 +16,7 @@ const DataVisualization = (props) => {
   }, [props.country])
 
   useEffect(() => {
-    axios.get(`/api/v1/sales/${props.country[0][1]}`)
+    axios.get(`/api/v1/orders/${props.country[0][1]}`)
     .then( resp => {
       setTotalRevenue(Math.round(resp.data.revenue));
     })
@@ -24,7 +24,7 @@ const DataVisualization = (props) => {
   }, [props.country])
 
   useEffect(() => {
-    axios.get(`/api/v1/orders/${props.country[0][1]}`)
+    axios.get(`/api/v1/orders/${props.country[0][1]}/average`)
     .then( resp => {
       setAverageRevenuePerOrder(Math.round(resp.data.average_revenue));
     })
@@ -32,10 +32,9 @@ const DataVisualization = (props) => {
   }, [props.country])
 
   useEffect(() => {
-    axios.get(`/api/v1/sales/${props.country[0][1]}/monthly`)
+    axios.get(`/api/v1/orders/${props.country[0][1]}/monthly`)
     .then( resp => {
       setRevenuePerMonth(resp.data.revenue_per_month);
-      console.log(revenuePerMonth);
     })
     .catch( resp => console.log(resp));
   }, [props.country])
