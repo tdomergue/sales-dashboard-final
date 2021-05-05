@@ -1,0 +1,9 @@
+.summary-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 16px;
+  margin: 20px 0px;
+  .summary-card {
+    margin: 0 !important;
+  }
+}
